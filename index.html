@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Horta</title>
+</head>
+
+<body>
+    <div class="login">
+
+        <div class="logo-container">
+            <img src="img/Logo.png" alt="Logo">
+        </div>
+
+        <div class="login-info-container">
+            <input class="inp-login" type="text" placeholder="E-mail">
+            <input class="inp-login" type="text" placeholder="Senha">
+            <div class="botao btn-login">Entrar</div>
+            <div class="cadastro-recuperar-container">
+                <p>Sem cadastro? Clique<a href="" class="link"> aqui</a> para cadastrar.
+                <br>Perdeu a senha?<a href="" class="link"> Recupere aqui.</a></p>
+            </div>
+            <div class="direitos"> © ICoders - Todos Direitos Reservados 2020</div>
+            
+        </div>   
+
+    </div>
+
+</body>
+
+<script>
+
+    let btnCadastrar = document.querySelector('.btn-cadastrar')
+    btnCadastrar.addEventListener('click', () => {
+        document.getElementById('input-login').style.display = 'none'
+        document.getElementById('input-cadastro').style.display = 'flex'
+    }, false)
+
+    // TESTE ###
+    let btnLogin = document.querySelector('.btn-logar')
+    btnLogin.addEventListener('click', () => {
+        let email = document.getElementById('email##').value
+        let senha = document.getElementById('senha##').value
+
+        if (email == 'teste' && senha == '123') {
+            window.location.href = './telaInicial.html'
+        }
+        else {
+            let mensagem = document.getElementsByClassName('erroInputLogin')[0]
+            mensagem.style.display = 'flex'
+        }
+    }, false)
+
+</script>
+
+</html>
