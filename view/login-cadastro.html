@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="init/reset.css">
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="../init/reset.css">
+    <link rel="stylesheet" href="../assets/css/login-cadastro.css">
     <title>Horta</title>
 </head>
 
@@ -13,12 +13,12 @@
     <div class="login">
 
         <div class="logo-container">
-            <img src="assets/img/Logo.png" alt="Logo">
+            <img src="../assets/img/Logo.png" alt="Logo">
         </div>
 
         <div class="login-info-container">
-            <input class="inp-login" type="text" placeholder="E-mail">
-            <input class="inp-login" type="text" placeholder="Senha">
+            <input id="email" class="inp-login" type="text" placeholder="E-mail">
+            <input id="senha" class="inp-login" type="password" placeholder="Senha">
             <div class="botao btn-login">Entrar</div>
             <div class="cadastro-recuperar-container">
                 <p>Sem cadastro? Clique<a href="" class="link"> aqui</a> para cadastrar.
@@ -34,27 +34,29 @@
 
 <script>
 
-    let btnCadastrar = document.querySelector('.btn-cadastrar')
-    btnCadastrar.addEventListener('click', () => {
-        document.getElementById('input-login').style.display = 'none'
-        document.getElementById('input-cadastro').style.display = 'flex'
-    }, false)
+window.onload= function()
+{
+    // let btnCadastrar = document.querySelector('.btn-cadastrar')
+    // btnCadastrar.addEventListener('click', () => {
+    //     document.getElementById('input-login').style.display = 'none'
+    //     document.getElementById('input-cadastro').style.display = 'flex'
+    // }, false)
 
     // TESTE ###
-    let btnLogin = document.querySelector('.btn-logar')
+    let btnLogin = document.querySelector('.btn-login')
     btnLogin.addEventListener('click', () => {
-        let email = document.getElementById('email##').value
-        let senha = document.getElementById('senha##').value
+        let email = document.getElementById('email').value
+        let senha = document.getElementById('senha').value
 
         if (email == 'teste' && senha == '123') {
-            window.location.href = './telaInicial.html'
+            window.location.href = 'dashboard.html'
         }
         else {
             let mensagem = document.getElementsByClassName('erroInputLogin')[0]
             mensagem.style.display = 'flex'
         }
     }, false)
-
+}
 </script>
 
 </html>
