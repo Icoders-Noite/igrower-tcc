@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
 }
@@ -10,12 +9,11 @@ body {
     background: url(../img/Horta-Fundo.png) repeat center fixed;
     background-size: cover;
     overflow: hidden;
-
     height: 100vh;
     width: 100vw;
 }
 
-.login {
+.login-cadastro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,18 +21,45 @@ body {
     width: 500px;
     padding: 55px;
     background-color: #fffd;
-
 }
 
-.logo-container{
-    margin-bottom: 50px;
+
+#login {}
+
+#cadastro {
+    display: none;
+    padding-top: 1%;
+    padding-left: 1%;
+
+}
+.cadastro{
+    /* superior | direita | inferior | esquerda */
+    padding: 0 55px 55px 55px;  
+
+}
+.header-card{
+    padding: 0px;
+    
+}
+.header-card i{
+    font-size: 1.5rem;
+    transition:0.4s ease-in-out;
+}
+.header-card i:hover{
+    transform: scale(1.5);
+    color:rgb(222,222,222);
+}
+.logo-container {
+    margin-bottom:50px;
+    display: flex;
+    justify-content: center;
 }
 
-.logo-container img{
+.logo-container img {
     width: 200px;
 }
 
-.login-info-container{
+.login-info-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -42,7 +67,17 @@ body {
     width: 100%;
 }
 
-.inp-login{
+.cadastro-info-container{
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    height: 25vh;
+    width: 100%;
+    padding-top: 5%;
+}
+
+
+.inp-login-cadastro {
     box-sizing: content-box;
     height: 40px;
     text-indent: 20px;
@@ -53,73 +88,116 @@ body {
     font-size: 1em;
 }
 
-.botao{
+.botao {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.btn-login{
+.btn-login-cadastro {
     background-color: greenyellow;
     font-size: 1.5em;
     height: 40px;
     border-radius: 2em;
-    box-shadow:2px 2px 0 0 #777;
+    box-shadow: 2px 2px 0 0 #777;
+    transition: 0.5s;
 }
 
-.btn-login:hover,
-.btn-login:active{
+.btn-login-cadastro:hover,.btn-login-cadastro:active{
     box-shadow: none;
     transform: scale(0.95);
+
 }
 
-.cadastro-recuperar-container{
+.cadastro-recuperar-container {
     display: flex;
     flex-direction: column;
     justify-items: left;
     font-size: 1em;
 }
+.cadastro-recuperar-container {
+    font-family: 'Roboto', sans-serif;
 
-.link{
-    text-decoration: none;
-    color:purple;
 }
-.link:hover{
+
+.link {
+    text-decoration: none;
+    color: purple;
+}
+
+.link:hover {
     text-decoration: underline;
     color: pink;
+    cursor: pointer;
 }
 
-.direitos{
+.footer-card {
     text-align: center;
     color: #777b;
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3) { 
-    body{
+
+
+#btn-cadastro{
+    margin-bottom: 2%;
+    margin-top:2%;
+}
+#btn-login{
+ 
+    margin-top:2%;
+}
+
+/* Media queryes */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    body {
         justify-content: center;
     }
-
-    .login{
+   
+    .login-cadastro {
         width: 80%;
         height: 80%;
         padding: 35px;
         align-self: center;
         align-content: center;
-        border-radius: 0 0 100px 0 ;
+        border-radius: 0 0 100px 0;
     }
-
-    .logo-container{
+    .logo-container {
         margin-bottom: 1em;
     }
-
-    .login-info-container{
+    .login-info-container {
         flex-grow: 1;
         justify-content: space-between;
     }
+    .cadastro-info-container {
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+   
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  
+    .cadastro{
+        padding:0px 0px 0px 55px;
 
+    }
+    #login input{
+        padding: 5%;
+    }
+    .cadastro input{
+        padding: 5%;
+    }
+   #cadastro .logo-container{
+        margin-bottom: 50%;
+    }
+    
+    .header-card i {
+        
+ 
+        padding-left: 3%;
+    
+    }
+    .footer-card{
+        font-size: 0.7rem;
+    }
   }
-
-
