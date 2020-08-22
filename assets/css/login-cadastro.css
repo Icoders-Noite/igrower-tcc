@@ -6,7 +6,7 @@ html, body {
 body {
     display: flex;
     justify-content: flex-end;
-    background: url(../img/Horta-Fundo.png) repeat center fixed;
+    background: url(../../img/compress/Horta-Fundo.png) repeat center fixed;
     background-size: cover;
     overflow: hidden;
     height: 100vh;
@@ -35,6 +35,11 @@ body {
 .cadastro{
     /* superior | direita | inferior | esquerda */
     padding: 0 55px 55px 55px;  
+    display: flex;
+    flex-direction: column;
+
+}
+.aditional{
 
 }
 .header-card{
@@ -147,6 +152,20 @@ body {
     margin-top:2%;
 }
 
+.alerts{
+    display:none;
+   background-color: rgba(255, 0, 0, 0.411);
+   border-radius: 2em;
+   color: red;
+   padding: 1%;
+   margin:1%;
+   
+}
+.container-alerts{
+    display:flex;
+    justify-content: center;
+    
+}
 /* Media queryes */
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {

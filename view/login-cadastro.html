@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../init/reset.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/login-cadastro.css">
+    <link rel="stylesheet" href="../assets/css/css-min/style.min.css">
     <script src="https://kit.fontawesome.com/9280d503ee.js" crossorigin="anonymous"></script>
-    <script src="../assets/js/jquery.min.js"></script>
+
+    <script defer src="../assets/js/js-min/script.min.js"></script>
+
+
+
     <title>Login</title>
 </head>
 
@@ -37,7 +39,7 @@
     <!-- cadastro -->
     <div id="cadastro" class="login-cadastro">
 
-        <div  class="header-card"><i id="voltarLogin" class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div class="header-card"><i id="voltarLogin" class="fa fa-arrow-left" aria-hidden="true"></i></div>
 
         <div class="cadastro">
 
@@ -48,74 +50,32 @@
 
 
             <div class="cadastro-info-container">
-                <input id="email" class="inp-login-cadastro" type="email" placeholder="E-mail">
+                <input id="emailCadastro" class="inp-login-cadastro" type="email" placeholder="E-mail">
+
                 <input id="nome" class="inp-login-cadastro" type="text" placeholder="Nome">
                 <input id="sobrenome" class="inp-login-cadastro" type="text" placeholder="Sobrenome">
-                <input id="senha" class="inp-login-cadastro" type="password" placeholder="Senha">
+                <input id="senhaCadastro" class="inp-login-cadastro" type="password" placeholder="Senha">
                 <input id="confirmarSenha" class="inp-login-cadastro" type="password" placeholder="Confirmar senha">
 
                 <div id="btn-cadastro" class="botao btn-login-cadastro">Cadastrar</div>
 
 
 
-
-                <div class="footer-card"> © ICoders - Todos Direitos Reservados 2020</div>
-
             </div>
 
+        </div>
+        <div class="aditional">
+            <div class="container-alerts">
+                <span class="alerts" id="emailExistente">*Email já cadastrado</span>
+                <span class="alerts" id="senhasDivergentes">*Senhas divertgentes</span> 
+                <span class="alerts" id="dadosNaoPreenchidos">*Favor preencher todos os dados</span>
+                <span class="alerts" id="senhaCurta">*A senha deve ter 8 ou mais caracteres</span>
+            </div>
+            <div class="footer-card"> © ICoders - Todos Direitos Reservados 2020</div>
         </div>
     </div>
 </body>
 
-<script>
 
-    window.onload = function () {
-        // let btnCadastrar = document.querySelector('.btn-cadastrar')
-        // btnCadastrar.addEventListener('click', () => {
-        //     document.getElementById('input-login').style.display = 'none'
-        //     document.getElementById('input-cadastro').style.display = 'flex'
-        // }, false)
-
-        // TESTE ###
-        let btnLogin = document.querySelector('#btn-login')
-        btnLogin.addEventListener('click', () => {
-            let email = document.getElementById('email').value
-            let senha = document.getElementById('senha').value
-
-            if (email == 'teste' && senha == '123') {
-                window.location.href = 'dashboard.html'
-            }
-            else {
-                let mensagem = document.getElementsByClassName('erroInputLogin')[0]
-                mensagem.style.display = 'flex'
-            }
-        }, false)
-
-        //abrir o cadastro e fechar login
-        $("#abrirCadastro").click(function () {
-
-
-            $("#login").fadeOut("slow", function () {
-                $("#cadastro").fadeIn("slow");
-
-            })
-
-            document.title = "Cadastro"
-        })
-
-        //fechar cadastro  e abrir login
-        $("#voltarLogin").click(function () {
-
-
-            $("#cadastro").fadeOut("slow", function () {
-                $("#login").fadeIn("slow");
-
-            })
-
-            document.title = "Login"
-        })
-
-    }
-</script>
 
 </html>
