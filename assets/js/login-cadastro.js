@@ -1,27 +1,39 @@
-window.onload = function () {
+
 
 
     //apertando o botão login
-    let btnLogin = document.querySelector('#btn-login');
-    btnLogin.addEventListener('click', () => {
-        let email = document.getElementById('email').value
-        let senha = document.getElementById('senha').value
+    $('#btn-login').click(function () {
 
-        if (email == 'teste' && senha == '123') {
-            window.location.href = 'dashboard.html'
-        }
-        else {
-            let mensagem = document.getElementsByClassName('erroInputLogin')[0]
-            mensagem.style.display = 'flex'
-        }
-    }, false)
+        $("#credenciaisIncorretas").fadeOut("fast", function () {
+            $("#camposEmBranco").fadeOut("fast", function () {
+
+                let email = document.getElementById('email').value
+                let senha = document.getElementById('senha').value
+                if (email.length > 0 && senha.length > 0) {
+
+                    if (email == 'teste' && senha == '123') {
+
+                        window.location.href = 'dashboard.html'
+                    }
+                    else {
+                        $("#credenciaisIncorretas").fadeIn("slow")
+                    }
+                } else {
+                    $("#camposEmBranco").fadeIn("slow")
+                }
+            })
+        })
+
+
+
+    })
 
     //abrir o cadastro e fechar login
     $("#abrirCadastro").click(function () {
 
 
         $("#login").fadeOut("slow", function () {
-            $("#cadastro").fadeIn("slow");
+            $("#cadastro").fadeIn("slow")
 
         })
 
@@ -33,7 +45,7 @@ window.onload = function () {
 
 
         $("#cadastro").fadeOut("slow", function () {
-            $("#login").fadeIn("slow");
+            $("#login").fadeIn("slow")
 
         })
 
@@ -41,51 +53,57 @@ window.onload = function () {
     })
 
     //botão cadastrar 
+    $('#btn-cadastro').click(function () {
+        $("#dadosNaoPreenchidos").fadeOut("fast", function () {
+            $("#emailExistente").fadeOut("fast", function () {
+                $("#emailExistente").fadeOut("fast", function () {
+                    $("#senhaCurta").fadeOut("fast", function () {
+                        $("#senhasDivergentes").fadeOut("fast", function () {
+                            let email = document.getElementById('emailCadastro').value
+                            let nome = document.getElementById('nome').value
+                            let sobrenome = document.getElementById('sobrenome').value
+                            let senha = document.getElementById('senhaCadastro').value
+                            let confirmarSenha = document.getElementById('confirmarSenha').value
+                            if (email.length > 0 && nome.length > 0 && sobrenome.length > 0 && senha.length > 0 && confirmarSenha.length > 0) {
 
-    let btnCadastro = document.querySelector('#btn-cadastro');
-    btnCadastro.addEventListener('click', () => {
-        let email = document.getElementById('emailCadastro').value
-        let nome = document.getElementById('nome').value
-        let sobrenome = document.getElementById('sobrenome').value
-        let senha = document.getElementById('senhaCadastro').value
-        let confirmarSenha = document.getElementById('confirmarSenha').value
-        if (email.length > 0 && nome.length > 0 && sobrenome.length > 0 && senha.length > 0 && confirmarSenha.length > 0) {
-            $("#dadosNaoPreenchidos").fadeOut("slow", function () { })
-            if (email != "aa") {
+                                if (email != "aa"/*aqui vai um método bool da api que verifica se o email já tem cadastro */) {
 
-                $("#emailExistente").fadeOut("slow", function () { })
-                if (senha.length >= 8) {
-                    $("#senhaCurta").fadeOut("slow", function () { })
-                    if (senha == confirmarSenha) {
 
-                        $("#senhasDivergentes").fadeOut("slow", function () { })
+                                    if (senha.length >= 8) {
 
-                        //para enviar para a API
-                        const objetoPost = {
-                            "nome": nome,
-                            "sobrenome": sobrenome,
-                            "email": email,
-                            "senha": btoa(senha)
-                        }
+                                        if (senha == confirmarSenha) {
 
 
 
-                    }
-                    else {
-                        $("#senhasDivergentes").fadeIn("slow", function () { })
-                    }
-                } else {
-                    $("#senhaCurta").fadeIn("slow", function () { })
-                }
-            } else {
-                $("#emailExistente").fadeIn("slow", function () { })
-            }
-
-        } else {
-            $("#dadosNaoPreenchidos").fadeIn("slow", function () { })
-        }
+                                            //para enviar para a API
+                                            const objetoPost = {
+                                                "nome": nome,
+                                                "sobrenome": sobrenome,
+                                                "email": email,
+                                                "senha": btoa(senha)
+                                            }
 
 
-    }, false)
 
-}
+                                        }
+                                        else {
+                                            $("#senhasDivergentes").fadeIn("slow", function () { })
+                                        }
+                                    } else {
+                                        $("#senhaCurta").fadeIn("slow", function () { })
+                                    }
+                                } else {
+                                    $("#emailExistente").fadeIn("slow", function () { })
+                                }
+
+                            } else {
+                                $("#dadosNaoPreenchidos").fadeIn("slow", function () { })
+                            }
+
+                        })
+                    })
+                })
+            })
+        })
+    })
+

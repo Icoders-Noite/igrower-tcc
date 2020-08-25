@@ -150,7 +150,7 @@ body {
 }
 
 .alerts{
-    display:none;
+   display:none;
    background-color: rgba(255, 0, 0, 0.411);
    border-radius: 2em;
    color: red;
@@ -193,27 +193,5 @@ body {
 }
 @media (min-width: 320px) and (max-width: 480px) {
   
-    .cadastro{
-        padding:0px 0px 0px 55px;
-
-    }
-    #login input{
-        padding: 5%;
-    }
-    .cadastro input{
-        padding: 5%;
-    }
-   #cadastro .logo-container{
-        margin-bottom: 50%;
-    }
-    
-    .header-card i {
-        
- 
-        padding-left: 3%;
-    
-    }
-    .footer-card{
-        font-size: 0.7rem;
-    }
+  
   }
