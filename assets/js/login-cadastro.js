@@ -28,6 +28,12 @@
 
     })
 
+    $("#senha").on('keypress',function(e) {
+        if(e.which == 13) {
+            $( "#btn-login" ).trigger( "click" );
+        }
+    });
+
     //abrir o cadastro e fechar login
     $("#abrirCadastro").click(function () {
 
