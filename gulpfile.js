@@ -18,9 +18,16 @@ const clean = require('gulp-clean');
 var stripCssComments = require('gulp-strip-css-comments');
 
 
-const js = [ 'assets/js/util.js','assets/js/login-cadastro.js','assets/js/recuperarSenha.js'/*, 'assets/js/teste.js'*/]
+const js = [ 'assets/js/util.js','assets/js/login-cadastro.js',
+'assets/js/recuperarSenha.js','assets/js/arquivoConfig.js'/*, 'assets/js/teste.js'*/]
 
-const css = ['init/reset.css','assets/css/main.css','assets/css/login-cadastro.css','assets/css/telaInicial.css','assets/css/index.css']
+const css = ['init/reset.css','assets/css/main.css',
+'assets/css/login-cadastro.css',
+'assets/css/tela-inicial.css',
+'assets/css/index.css',
+'assets/css/card.css',
+'assets/css/recuperar-senha.css',
+'assets/css/arquivo-config.css']
 
 gulp.task('clean', function () {
     return gulp.src('dist/')

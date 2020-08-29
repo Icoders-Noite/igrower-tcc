@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../assets/css/css-min/style.min.css'>
+    <script src="../assets/js/libs/jquery.min.js"></script>
+    <script src="../assets/js/libs/fileSaver.js"></script>
+    <script defer src='../assets/js/js-min/script.min.js'></script>
+
+</head>
+
+<body class="body-center">
+    <div class="card-out">
+        <div class="card-in">
+            <h3>Configuraçoes do Arduino</h3>
+            <div class="span-info">
+                <p>Informe os parâmetros para gerar o arquivo de configurações</p>
+            </div>
+            <div class="inputs-config">
+                <input id="ssid" class="inp-arquivo-config" type="text" placeholder="Nome da rede Wi-Fi">
+
+                <input id="senhaWifi" class="inp-arquivo-config" type="password" placeholder="senha da rede Wi-Fi">
+
+                <div class="selects-config">
+                    <div class="itens-selection itens-selection-humidity">
+                        <select id="minHumidity" class="inp-arquivo-config" type="number"
+                            placeholder="Umidade mínima do solo">
+                            <option value="0" selected>Umidade mínima do solo</option>
+                            <option value="80">Flor - 80%</option>
+                            <option value="70">margarida - 70%</option>
+                            <option value="-1">selecionar manualmente</option>
+                        </select>
+                        <input id="minHumidityManual" type="range" class="range-humidity" max="99" min="10" placeholder="Umidade mínima do solo">
+                    </div>
+                    <div class="itens-selection">
+                        <select id="autoMode" class="inp-arquivo-config" placeholder="Modo automático">
+                            <option value="-1" selected>Modo de regagem automática</option>
+                            <option value="0">Desligado</option>
+                            <option value="1">Ligado</option>
+                        </select>
+                        <span>* ligue para manter o solo na umidade mínima selecionada</span>
+                    </div>
+                </div>
+
+                <div id="btn-gerar-config" class="btn-gerar-arquivo">Gerar arquivo</div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

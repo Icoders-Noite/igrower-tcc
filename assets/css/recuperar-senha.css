@@ -1,0 +1,37 @@
+.body-center{
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.inp-recuperar_senha{
+    width: 20vw;
+    height: 5vh; 
+   border:1px solid white;
+    border-radius: 2em;
+    padding:1%;
+}
+
+.inp-recuperar_senha:focus {
+ 
+    border:1px solid white;
+    outline: 0;
+} 
+.btn-recuperar-senha {
+    background-color: greenyellow;
+    font-size: 1.5em;
+    height: 30px;
+    width:15vw;
+    border-radius: 2em;
+    margin-top: 3%;
+    box-shadow: 2px 2px 0 0 #777;
+    transition: 0.5s;
+}
+
+.btn-recuperar-senha:hover,.btn-recuperar-senha:active{
+    box-shadow: none;
+    transform: scale(0.95);
+
+}
