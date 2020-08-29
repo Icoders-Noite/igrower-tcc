@@ -23,7 +23,7 @@ $("#btn-gerar-config").click(function () {
 function salvar(config) {
 
     let blob = new Blob(Array.from(config), { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "config" + ".txt");
+    saveAs(blob, "CONFIG" + ".txt");
 }
 
 $("#minHumidity")
