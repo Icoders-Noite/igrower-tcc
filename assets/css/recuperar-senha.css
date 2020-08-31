@@ -1,37 +1,53 @@
-.body-center{
-  
+.body-center {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-.inp-recuperar_senha{
-    width: 20vw;
-    height: 5vh; 
-   border:1px solid white;
+.content {
+    background-color: #fffa;
+    width: 50vw;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.inp-recuperar_senha {
+    width: 80%;
+    height: 5vh;
+    border: 1px solid white;
     border-radius: 2em;
-    padding:1%;
+    padding: 1%;
 }
 
 .inp-recuperar_senha:focus {
- 
-    border:1px solid white;
+    border: 1px solid white;
     outline: 0;
-} 
+}
+
 .btn-recuperar-senha {
     background-color: greenyellow;
     font-size: 1.5em;
     height: 30px;
-    width:15vw;
+    width: 50%;
     border-radius: 2em;
     margin-top: 3%;
     box-shadow: 2px 2px 0 0 #777;
     transition: 0.5s;
 }
 
-.btn-recuperar-senha:hover,.btn-recuperar-senha:active{
+.btn-recuperar-senha:hover,
+.btn-recuperar-senha:active {
     box-shadow: none;
     transform: scale(0.95);
+}
 
+@media only screen and (min-device-width: 360px) and (max-device-width: 812px)  and (-webkit-min-device-pixel-ratio: 3){
+    .content {
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0 200px 0 200px;
+    }
 }

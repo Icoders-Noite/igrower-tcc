@@ -20,7 +20,7 @@ body {
     box-sizing: border-box;
     width: 500px;
     padding: 55px;
-    background-color: #fffd;
+    background-color: #fffa;
 }
 
 
@@ -30,6 +30,7 @@ body {
     display: none;
     padding: 10px;
 }
+
 .cadastro{
     /* superior | direita | inferior | esquerda */
     padding: 20px 55px 55px 55px;  
@@ -165,7 +166,7 @@ body {
 }
 /* Media queryes */
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 360px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
     body {
         justify-content: center;
     }
@@ -191,7 +192,3 @@ body {
     }
    
 }
-@media (min-width: 320px) and (max-width: 480px) {
-  
-  
-  }

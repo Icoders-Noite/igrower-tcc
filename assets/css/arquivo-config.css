@@ -22,10 +22,7 @@
 }
 .selects-config{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-   
+    flex-direction: row;    
 }
 .itens-selection{
     display: flex;
