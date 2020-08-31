@@ -1,15 +1,18 @@
-
+$("#ipArduino").mask('0ZZ.0ZZ.0ZZ.0ZZ', { translation: { 'Z': { pattern: /[0-9]/, optional: true } } });
 $("#btn-gerar-config").click(function () {
+   
 
     let ssid = $("#ssid").val()
     let senha = $("#senhaWifi").val()
+    let ipArduino=$("#ipArduino").val()
     let minHumidity = $("#minHumidity").children("option:selected").val()
     let autoMode = $("#autoMode").children("option:selected").val()
 
 
-    if (senha.length > 0 && ssid.length > 0 && minHumidity != "-1" && minHumidity != "0" && autoMode != "-1") {
+
+    if (senha.length > 0 && ssid.length > 0 &&ipArduino.length>0&& minHumidity != "-1" && minHumidity != "0" && autoMode != "-1") {
         alert("Salve o arquivo de configurações dentro do cartão SD do Igrower e selecione para substituir arquivo")
-        salvar(`${ssid}\n${senha}\n${minHumidity}\n${autoMode}\n`)
+        salvar(`${minHumidity}\n${ssid}\n${senha}\n${ipArduino}\n${autoMode}\n`)
        
     } else {
         alert("Opções inválidas")
@@ -18,6 +21,8 @@ $("#btn-gerar-config").click(function () {
 
 
 })
+
+
 
 
 function salvar(config) {
