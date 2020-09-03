@@ -1,1 +1,140 @@
- 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+
+    /*justify-content: flex-end;
+    background: url(../img/compress/Horta-Fundo.png) repeat center fixed;
+    background-size: cover;*/
+    /*background-color: #46272f;*/
+    background-color: #97bf7c;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Menu Inicio */
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+}
+
+li{
+    float: left;
+}
+
+li a{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Sriracha', cursive;   
+    font-size: 125%;
+    transition: 0.3s;
+}
+
+li a:hover{
+    background-color: #adff2e;
+    color: black;
+  }
+
+img{
+    text-align: center;
+    padding: 20px;
+}
+
+li, p, img  {
+    animation-name: fade;
+    animation: fade ease 0.8s;
+    -webkit-animation: fade ease 0.8s;
+    -moz-animation: fade ease 0.8s;
+    -o-animation: fade ease 0.8s;
+    -ms-animation: fade ease 0.8s;
+}
+
+.menu{
+    background-color: white;
+}
+
+.img{
+    width: 200px;
+    height: 200px;
+}
+
+
+.login{
+    background-color: #F07729;
+    margin-right: 15px;
+}
+/* Menu Fim */
+
+/* Texto Inicio */
+h1{
+    font-family: 'Sriracha', cursive;   
+    text-align: center;
+    margin: 50px;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    color: black;
+
+}
+
+.fundo_texto{
+    background-color: rgba(255,255,255,0.6);
+    margin: 30px;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.fundo_texto, .footer, .texto_rodape{
+    animation-name: fade;
+    animation: fade ease 0.8s;
+    -webkit-animation: fade ease 0.8s;
+    -moz-animation: fade ease 0.8s;
+    -o-animation: fade ease 0.8s;
+    -ms-animation: fade ease 0.8s;
+}
+/* Texto Fim */
+
+
+@keyframes fade {
+    0%{ 
+        opacity: 0;
+    }
+  100%{ 
+      opacity: 1;
+    }
+}
+
+/*rodapé início*/
+address{
+    font-family: 'Sriracha', cursive;  
+}
+
+.footer{
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem 0;
+    margin: auto auto;
+    color: #949394;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    width: 100%;
+    background: white;
+}
+.texto_rodape{
+    text-align: center;
+}
+
+/*rodapé fim*/
