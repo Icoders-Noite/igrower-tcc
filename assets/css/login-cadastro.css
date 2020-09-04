@@ -3,7 +3,7 @@ html, body {
     padding: 0;
 }
 
-body {
+.corpo-fundo{
     display: flex;
     justify-content: flex-end;
     background: url(../../img/compress/Horta-Fundo.png) repeat center fixed;
