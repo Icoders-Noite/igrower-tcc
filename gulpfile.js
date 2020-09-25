@@ -23,11 +23,11 @@ const js = [ 'assets/js/util.js','assets/js/login-cadastro.js',
 
 const css = ['init/reset.css','assets/css/main.css',
 'assets/css/login-cadastro.css',
-'assets/css/tela-inicial.css',
+'assets/css/dashboard.css',
 'assets/css/index.css',
 'assets/css/card.css',
 'assets/css/recuperar-senha.css',
-'assets/css/arquivo-config.css']
+'assets/css/gerar-configuracoes.css']
 
 gulp.task('clean', function () {
     return gulp.src('dist/')

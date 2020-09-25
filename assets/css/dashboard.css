@@ -1,0 +1,267 @@
+#corpo-dashboard {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+#graficoAgua {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+}
+
+#graficoAgua .chart {
+    width: 0;
+    height: 0;
+    position: relative;
+    border: 100px solid cornflowerblue;
+    border-radius: 50%;
+}
+
+#graficoAgua .cover-under50 {
+    position: absolute;
+    z-index: 10;
+    border: 20px solid rgba(199, 199, 199, 0.8);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    left: -100px;
+    top: -100px;
+    -webkit-clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    transform: rotate(180deg);
+}
+
+#graficoAgua .cover-over50 {
+    position: absolute;
+    z-index: 30;
+    border: 20px solid rgba(199, 199, 199, 0.8);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    left: -100px;
+    top: -100px;
+    -webkit-clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    transform: rotate(0deg);
+}
+
+#graficoAgua .fill-over50 {
+    position: absolute;
+    z-index: 20;
+    border: 20px solid cornflowerblue;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    left: -100px;
+    top: -100px;
+    -webkit-clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
+    transform: rotate(0deg);
+    /* -180deg to 0deg for 50% to 100%*/
+}
+
+#graficoAgua .info {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 60;
+    font-size: 3rem;
+    line-height: 10rem;
+    font-family: sans-serif;
+    text-align: center;
+    top: -80px;
+    left: -80px;
+}
+
+#graficoAgua .info::after {
+    content: '%';
+}
+
+#left-section-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 100vh;
+}
+
+#help-button-dashboard {
+    display: flex;
+    background-color: green;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0.20;
+}
+
+#menu-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 2;
+    padding: 10px 0 10px 0;
+    background-color: steelblue;
+}
+
+#logoff-button-dashboard {
+    display: flex;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0.20;
+}
+
+#middle-side-section-dashboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 1;
+    background-color: grey;
+}
+
+.logoff-dashboard {
+    position: absolute;
+}
+
+
+/* start SWITCH LIGHT AND WATER */
+
+
+/* start Debug */
+
+.debug-img {
+    height: 75px;
+    width: 75px;
+    box-sizing: content-box;
+    margin: 5px;
+    border: 2px solid gray;
+}
+
+.debug-img.switch-light {
+    background-color: orange;
+}
+
+.debug-img.switch-water {
+    background-color: teal;
+}
+
+
+/* end Debug */
+
+.switch-container-dashboard {
+    display: flex;
+    /*Main Axis*/
+    justify-content: space-around;
+    /*Cross Axis*/
+    align-items: center;
+}
+
+.switch-container-dashboard.water-container {
+    flex-direction: column;
+}
+
+.switch-container-dashboard.light-container {
+    flex-direction: column;
+}
+
+.switch-dashboard {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+/* Hide default checkbox */
+
+.switch-dashboard input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+/* Slider */
+
+.slider-dashboard {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider-dashboard:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider-dashboard.slider-water {
+    background-color: #2196F3;
+}
+
+input:focus+.slider-dashboard.slider-water {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider-dashboard.slider-light {
+    background-color: yellow;
+}
+
+input:focus+.slider-dashboard.slider-light {
+    box-shadow: 0 0 1px yellow;
+}
+
+input:checked+.slider-dashboard:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider-dashboard {
+    border-radius: 34px;
+}
+
+.slider-dashboard:before {
+    border-radius: 50%;
+}
+
+/* start Configurações */
+
+.inputs-configuracoes-dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    flex-grow: 1;
+}
+
+.input-arquivo-dashboard{
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+}
+
+.btn-gerar-arquivo{
+    background: honeydew;
+}
