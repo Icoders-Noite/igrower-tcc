@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/css-min/style.min.css">
     <script src="../assets/js/libs/jquery.min.js"></script>
+    
     <script>
         //<![CDATA[
         $(window).on('load', function () {
@@ -15,7 +16,7 @@
         })
    //]]>
     </script>
-    <script src="../assets/js/libs/jquery.min.js" crossorigin="anonymous"></script>
+ 
     <script defer src="../assets/js/js-min/script.min.js"></script>
 
     <style>
@@ -134,34 +135,8 @@
                 </div>
             </div>
 
-            <h3>Configuraçoes do Arduino</h3>
-            <div class="inputs-configuracoes-dashboard">
-                <input id="ssid" class="input-arquivo-dashboard" type="text" placeholder="Nome da rede Wi-Fi">
-                <input id="senhaWifi" class="input-arquivo-dashboard" type="password" placeholder="senha da rede Wi-Fi">
-                <input id="ipArduino" class="input-arquivo-dashboard" type="text" placeholder="IP do Arduino">
-                <div class="selects-config">
-                    <div class="itens-selection itens-selection-humidity">
-                        <select id="minHumidity" class="inp-arquivo-config" type="number"
-                            placeholder="Umidade mínima do solo">
-                            <option value="0" selected>Umidade mínima do solo</option>
-                            <option value="80">Flor - 80%</option>
-                            <option value="70">margarida - 70%</option>
-                            <option value="-1">selecionar manualmente</option>
-                        </select>
-                        <input id="minHumidityManual" type="range" class="range-humidity" max="99" min="10"
-                            placeholder="Umidade mínima do solo">
-                    </div>
-                    <div class="itens-selection">
-                        <select id="autoMode" class="inp-arquivo-config" placeholder="Modo automático">
-                            <option value="-1" selected>Modo de regagem automática</option>
-                            <option value="0">Desligado</option>
-                            <option value="1">Ligado</option>
-                        </select>
-                        <span>* ligue para manter o solo na umidade mínima selecionada</span>
-                    </div>
-                </div>
-                <div id="btn-gerar-config" class="btn-gerar-arquivo button">Gerar arquivo</div>
-            </div>
+          
+           <div id="configArduino"><div id="abrirConfig">x</div></div>
         </div>
 
         <div id="logoff-button-dashboard"><span class="button">SAIR</span></div>
@@ -180,7 +155,7 @@
 
     <!-- teste -->
     <script src="../assets/js/teste.js"></script>
-    <script src="../assets/js/testeTelaInicial.js"></script>
+
 
 </body>
 

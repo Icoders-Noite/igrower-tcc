@@ -19,7 +19,7 @@ var stripCssComments = require('gulp-strip-css-comments');
 
 
 const js = [ 'assets/js/util.js','assets/js/login-cadastro.js',
-'assets/js/recuperarSenha.js','assets/js/arquivoConfig.js'/*, 'assets/js/teste.js'*/]
+'assets/js/recuperarSenha.js','assets/js/arquivoConfig.js'/*, 'assets/js/teste.js'*/,'assets/js/dashboard.js']
 
 const css = ['init/reset.css','assets/css/main.css',
 'assets/css/login-cadastro.css',

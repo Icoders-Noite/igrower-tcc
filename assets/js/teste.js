@@ -39,3 +39,4 @@ function doRotations() {
         coverUnder.style.transform = `rotate(${pct}deg)`;
     }
 }
+
