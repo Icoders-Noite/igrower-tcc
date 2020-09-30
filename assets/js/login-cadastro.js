@@ -1,6 +1,5 @@
+const hostApi = "https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1"
 
-// const hostApi = "https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1"
-const hostApi = "http://127.0.0.1:5000"
 
 //apertando o botão login
 $('#btn-login').click(function () {
