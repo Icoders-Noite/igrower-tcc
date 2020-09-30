@@ -1,5 +1,6 @@
 
-
+// const hostApi = "https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1"
+const hostApi = "http://127.0.0.1:5000"
 
 //apertando o botão login
 $('#btn-login').click(function () {
@@ -11,20 +12,46 @@ $('#btn-login').click(function () {
             let senha = document.getElementById('senha').value
             if (email.length > 0 && senha.length > 0) {
                 const credentials = {
-                    "user": email,
-                    "password": btoa(senha)
+                    "email": email,
+                    "senha": btoa(senha)
                 }
                 $.ajax({
-                    url: 'https://my-json-server.typicode.com/Icoders-Noite/api-fake-test/login',
-                    data: credentials,
-                    error: function () {
-                        alert("Ocorreu um error ao se conectar com a API")
+                    // url: 'https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1/user-login',
+                    // data: credentials,
+                    // error: function (e) {
+                    //     console.log("Ocorreu um error ao se conectar com a API " + e.)
+                    // },
+                    // success: function (data) {
+                    //     console.log(data)
+                    //     callback(data)
+                    // },
+                    // type: 'POST'
+
+                    // url: 'https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1/user-login',
+                    // type: 'post',
+                    // dataType: 'json',
+                    // contentType: 'application/json',
+                    // success: function (data) {
+                    //     console.log(data)
+                    //     callback(data)
+                    // },
+                    // traditional: true,
+                    // data: JSON.stringify(credentials)
+
+                    url: hostApi+'/user-login',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Credentials': 'true',
+                        'Content-Type':'application/json'
                     },
-                    dataType: 'jsonp',
-                    success: function (data) {
+                    method: 'POST',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify(credentials),
+                    success: function(data){
+                        console.log('succes: '+ data['status']);
                         callback(data)
-                    },
-                    type: 'GET'
+                    }
                 });
 
 
@@ -40,7 +67,7 @@ $('#btn-login').click(function () {
 
 function callback(data) {
 
-    if (data.entrou) {
+    if (data.status) {
         window.location.href = 'dashboard.html'
     }
 
@@ -98,35 +125,30 @@ $('#btn-cadastro').click(function () {
                             if (senha.length >= 8) {
 
                                 if (senha == confirmarSenha) {
-
-
-                                    var xhr = new XMLHttpRequest();
-                                
-                                    // we defined the xhr
-
-                                    xhr.onreadystatechange = function () {
-                                        if (this.readyState != 4) return;
-
-                                        if (this.status == 200) {
-                                            var data = JSON.parse(this.responseText);
-                                            console.log(data)
-                                            // we get the returned data
-                                        }
-
-                                        // end of state change: it can be after some time (async)
-                                    };
-                                    xhr.open("POST", "https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1/novo-usuario", true);
-                                
-                                    xhr.setRequestHeader( 'Access-Control-Allow-Origin', '*');
-                                    // xhr.setRequestHeader( 'Host', 'https://us-central1-meu-tcc-1995.cloudfunctions.net');   
-                                    // xhr.setRequestHeader( 'Origin', 'https://us-central1-meu-tcc-1995.cloudfunctions.net');
-                                    xhr.setRequestHeader('Content-Type', 'pplication/json');
-                                    xhr.send(JSON.stringify({
+                                    let credentials = {
                                         "nome": nome,
                                         "sobrenome": sobrenome,
                                         "email": email,
                                         "senha": btoa(senha)
-                                    }));
+                                    }
+
+                                    $.ajax({
+                    
+                                        url: hostApi+'/novo-usuario',
+                                        headers: {
+                                            'Access-Control-Allow-Origin': '*',
+                                            'Access-Control-Allow-Credentials': 'true',
+                                            'Content-Type':'application/json'
+                                        },
+                                        method: 'POST',
+                                        type: 'POST',
+                                        dataType: 'json',
+                                        data: JSON.stringify(credentials),
+                                        success: function(data){
+                                            console.log('succes: '+ data['status']);
+                                            callbackCadastro(data)
+                                        }
+                                    });
 
 
 
@@ -153,7 +175,8 @@ function callbackCadastro(data) {
     if (data.status) {
 
         alert("Cadastrado com sucesso!")
-        $("#voltarLogin").trigger("click")
+        // $("#voltarLogin").trigger("click")
+        window.location.href = 'gerar-configuracoes.html'
     } else {
 
         if (data.mensagem == "E-mail já cadastrado!") {
