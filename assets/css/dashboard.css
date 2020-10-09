@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 #corpo-dashboard {
     display: flex;
     flex-direction: row;
@@ -5,84 +9,6 @@
     height: 100vh;
     width: 100vw;
 }
-
-#graficoAgua {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-content: center;
-}
-
-#graficoAgua .chart {
-    width: 0;
-    height: 0;
-    position: relative;
-    border: 100px solid cornflowerblue;
-    border-radius: 50%;
-}
-
-#graficoAgua .cover-under50 {
-    position: absolute;
-    z-index: 10;
-    border: 20px solid rgba(199, 199, 199, 0.8);
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    left: -100px;
-    top: -100px;
-    -webkit-clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-    transform: rotate(180deg);
-}
-
-#graficoAgua .cover-over50 {
-    position: absolute;
-    z-index: 30;
-    border: 20px solid rgba(199, 199, 199, 0.8);
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    left: -100px;
-    top: -100px;
-    -webkit-clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-    transform: rotate(0deg);
-}
-
-#graficoAgua .fill-over50 {
-    position: absolute;
-    z-index: 20;
-    border: 20px solid cornflowerblue;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    left: -100px;
-    top: -100px;
-    -webkit-clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%);
-    transform: rotate(0deg);
-    /* -180deg to 0deg for 50% to 100%*/
-}
-
-#graficoAgua .info {
-    width: 160px;
-    height: 160px;
-    position: absolute;
-    background-color: #fff;
-    border-radius: 50%;
-    z-index: 60;
-    font-size: 3rem;
-    line-height: 10rem;
-    font-family: sans-serif;
-    text-align: center;
-    top: -80px;
-    left: -80px;
-}
-
-#graficoAgua .info::after {
-    content: '%';
-}
-
 #left-section-dashboard {
     display: flex;
     flex-direction: column;
@@ -92,7 +18,7 @@
 
 #help-button-dashboard {
     display: flex;
-    background-color: green;
+    background-color: var(--verde-claro);
     align-items: center;
     justify-content: center;
     flex-grow: 0.20;
@@ -104,13 +30,12 @@
     justify-content: space-around;
     align-items: center;
     flex-grow: 2;
- 
-    background-color: steelblue;
+    background-color: var(--verde-azul);
 }
 
 #logoff-button-dashboard {
     display: flex;
-    background-color: red;
+    background-color: var(--rosa);
     align-items: center;
     justify-content: center;
     flex-grow: 0.20;
@@ -123,7 +48,7 @@
     align-items: center;
     justify-content: space-around;
     flex-grow: 1;
-    background-color: grey;
+    background-color: var(--verde-azul-escuro);
 }
 
 .logoff-dashboard {
@@ -131,30 +56,86 @@
 }
 
 
+/* ini: Preloader */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(57, 150, 3);
+    /* cor do background que vai ocupar o body */
+    z-index: 999;
+    /* z-index para jogar para frente e sobrepor tudo */
+}
+
+#preloader .inner {
+    position: absolute;
+    top: 50%;
+    /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bolas>div {
+    display: inline-block;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    margin: 3px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: animarBola;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.bolas>div:nth-child(1) {
+    animation-duration: 0.75s;
+    animation-delay: 0;
+}
+
+.bolas>div:nth-child(2) {
+    animation-duration: 0.75s;
+    animation-delay: 0.12s;
+}
+
+.bolas>div:nth-child(3) {
+    animation-duration: 0.75s;
+    animation-delay: 0.24s;
+}
+
+@keyframes animarBola {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    16% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        opacity: 0.7;
+    }
+    33% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* end: Preloader */
+
+
 /* start SWITCH LIGHT AND WATER */
 
-
-/* start Debug */
-
-.debug-img {
-    height: 75px;
-    width: 75px;
-    box-sizing: content-box;
-    margin: 5px;
-    border: 2px solid gray;
+img.switch-icon{
+    width: 100px;
+    height: 100px;
+    margin: 30px;
 }
-
-.debug-img.switch-light {
-    background-color: orange;
-}
-
-.debug-img.switch-water {
-    background-color: teal;
-}
-
-
-/* end Debug */
-
 .switch-container-dashboard {
     display: flex;
     /*Main Axis*/
@@ -176,6 +157,17 @@
     display: inline-block;
     width: 60px;
     height: 34px;
+}
+
+.botao-configuracao-dashboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--amarelo-verde);
+    border-radius: 100px;
+    width: 10vw;
+    height: 3em;
+    text-align: center;
 }
 
 
@@ -215,7 +207,7 @@
 }
 
 input:checked+.slider-dashboard.slider-water {
-    background-color: #2196F3;
+    background-color: var(--azul-escuro);
 }
 
 input:focus+.slider-dashboard.slider-water {
@@ -223,11 +215,11 @@ input:focus+.slider-dashboard.slider-water {
 }
 
 input:checked+.slider-dashboard.slider-light {
-    background-color: yellow;
+    background-color: var(--amarelo-medio);
 }
 
 input:focus+.slider-dashboard.slider-light {
-    box-shadow: 0 0 1px yellow;
+    box-shadow: 0 0 1px black;
 }
 
 input:checked+.slider-dashboard:before {
@@ -244,11 +236,18 @@ input:checked+.slider-dashboard:before {
     border-radius: 50%;
 }
 
+
 /* start Configurações */
-#iframeConfig{
 
-border:none;
-
+#iframeConfig {
+    border: none;
     width: 30vw;
     height: 63vh;
+}
+
+/* GRAFICOS */
+
+#graficos-dashboard{
+    width: 90%;
+    height: 60%;
 }

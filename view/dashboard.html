@@ -6,98 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/css-min/style.min.css">
     <script src="../assets/js/libs/jquery.min.js"></script>
-    
-    <script>
-        //<![CDATA[
-        $(window).on('load', function () {
-            $('#preloader .inner').fadeOut();
-            $('#preloader').delay(350).fadeOut('slow');
-            $('body').delay(350).css({ 'overflow': 'visible' });
-        })
-   //]]>
-    </script>
- 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script defer src="../assets/js/js-min/script.min.js"></script>
+    
 
-    <style>
-        body {
-            overflow: hidden;
-        }
-
-        /* ini: Preloader */
-
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgb(57, 150, 3);
-            /* cor do background que vai ocupar o body */
-            z-index: 999;
-            /* z-index para jogar para frente e sobrepor tudo */
-        }
-
-        #preloader .inner {
-            position: absolute;
-            top: 50%;
-            /* centralizar a parte interna do preload (onde fica a animação)*/
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .bolas>div {
-            display: inline-block;
-            background-color: #fff;
-            width: 25px;
-            height: 25px;
-            border-radius: 100%;
-            margin: 3px;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
-            animation-name: animarBola;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-
-        }
-
-        .bolas>div:nth-child(1) {
-            animation-duration: 0.75s;
-            animation-delay: 0;
-        }
-
-        .bolas>div:nth-child(2) {
-            animation-duration: 0.75s;
-            animation-delay: 0.12s;
-        }
-
-        .bolas>div:nth-child(3) {
-            animation-duration: 0.75s;
-            animation-delay: 0.24s;
-        }
-
-        @keyframes animarBola {
-            0% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            16% {
-                -webkit-transform: scale(0.1);
-                transform: scale(0.1);
-                opacity: 0.7;
-            }
-
-            33% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* end: Preloader */
-    </style>
     <title>Document</title>
 </head>
 
@@ -119,7 +31,7 @@
         <div id="menu-dashboard">
             <div class="switch-container-dashboard">
                 <div class="switch-container-dashboard light-container">
-                    <div class="debug-img switch-light"></div>
+                    <img src="../assets/img/Luz.png" alt="" class="switch-icon">
                     <label class="switch-dashboard">
                         <input type="checkbox">
                         <span class="slider-dashboard slider-light"></span>
@@ -127,36 +39,21 @@
                 </div>
 
                 <div class="switch-container-dashboard water-container">
-                    <div class="debug-img switch-water"></div>
+                    <img src="../assets/img/Água.png" alt="" class="switch-icon">
                     <label class="switch-dashboard">
                         <input type="checkbox">
                         <span class="slider-dashboard slider-water"></span>
                     </label>
                 </div>
             </div>
-
-          
-           <div id="configArduino"><div id="abrirConfig">x</div></div>
+           <div id="configArduino"><div id="abrirConfig"><div class="botao-configuracao-dashboard">Configurações</div></div></div>
         </div>
-
         <div id="logoff-button-dashboard"><span class="button">SAIR</span></div>
     </section>
 
     <section id="middle-side-section-dashboard">
-        <div id="graficoAgua">
-            <div class="chart">
-                <div class="cover-under50"></div>
-                <div class="cover-over50"></div>
-                <div class="fill-over50"></div>
-                <div class="info">0</div>
-            </div>
-        </div>
+        <canvas id="graficos-dashboard"></canvas>
     </section>
-
-    <!-- teste -->
-    <script src="../assets/js/teste.js"></script>
-
-
 </body>
 
 </html>

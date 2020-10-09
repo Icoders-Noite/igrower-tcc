@@ -4,3 +4,25 @@ body{
     font-family: 'Sriracha', cursive;
 
 }
+
+:root{
+    --roxo-escuro : #3A224F;
+    --roxo-medio-escuro : #4E2557;
+    --roxo-medio-claro : #73326A;
+    --roxo-claro: #A34474;
+    --rosa: #C7506B;
+    --laranja-escuro: #E3755F;
+    --laranja-claro: #ED9E70;
+    --amarelo-escuro: #FCC88D;
+    --amarelo-medio: #FFD7A3;
+    --amarelo-claro: #DDEDC9;
+    --amarelo-verde: #D0EBA8;
+    --verde-claro: #CFF291;
+    --verde-medio-claro: #A0DE85;
+    --verde-medio-escuro: #69C976;
+    --verde-escuro: #50ab76;
+    --verde-azul: #36777A;
+    --verde-azul-medio: #2E5C6B;
+    --verde-azul-escuro: #223D54;
+    --azul-escuro: #1F2E52;
+}
