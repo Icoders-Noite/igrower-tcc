@@ -15,40 +15,20 @@ $('#btn-login').click(function () {
                     "senha": btoa(senha)
                 }
                 $.ajax({
-                    // url: 'https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1/user-login',
-                    // data: credentials,
-                    // error: function (e) {
-                    //     console.log("Ocorreu um error ao se conectar com a API " + e.)
-                    // },
-                    // success: function (data) {
-                    //     console.log(data)
-                    //     callback(data)
-                    // },
-                    // type: 'POST'
 
-                    // url: 'https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1/user-login',
-                    // type: 'post',
-                    // dataType: 'json',
-                    // contentType: 'application/json',
-                    // success: function (data) {
-                    //     console.log(data)
-                    //     callback(data)
-                    // },
-                    // traditional: true,
-                    // data: JSON.stringify(credentials)
 
-                    url: hostApi+'/user-login',
+                    url: hostApi + '/user-login',
                     headers: {
                         'Access-Control-Allow-Origin': '*',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Content-Type':'application/json'
+                        'Content-Type': 'application/json'
                     },
                     method: 'POST',
                     type: 'POST',
                     dataType: 'json',
                     data: JSON.stringify(credentials),
-                    success: function(data){
-                        console.log('succes: '+ data['status']);
+                    success: function (data) {
+                        console.log(data);
                         callback(data)
                     }
                 });
@@ -67,6 +47,7 @@ $('#btn-login').click(function () {
 function callback(data) {
 
     if (data.status) {
+        localStorage.setItem("id", data.id_user);
         window.location.href = 'dashboard.html'
     }
 
@@ -132,19 +113,19 @@ $('#btn-cadastro').click(function () {
                                     }
 
                                     $.ajax({
-                    
-                                        url: hostApi+'/novo-usuario',
+
+                                        url: hostApi + '/novo-usuario',
                                         headers: {
                                             'Access-Control-Allow-Origin': '*',
                                             'Access-Control-Allow-Credentials': 'true',
-                                            'Content-Type':'application/json'
+                                            'Content-Type': 'application/json'
                                         },
                                         method: 'POST',
                                         type: 'POST',
                                         dataType: 'json',
                                         data: JSON.stringify(credentials),
-                                        success: function(data){
-                                            console.log('succes: '+ data['status']);
+                                        success: function (data) {
+                                            console.log('succes: ' + data['status']);
                                             callbackCadastro(data)
                                         }
                                     });

@@ -11,21 +11,22 @@ $("#btn-gerar-config").click(function () {
     senha = $("#senhaWifi").val()
     minHumidity = $("#minHumidity").children("option:selected").val()
     autoMode = $("#autoMode").children("option:selected").val()
-    idArduino = $("#idArduino").children("option:selected").val()
+    idArduino = $("#idArduino").val()
 
     const config = {
-        "userId": 12,
+        "user_Id": localStorage.getItem("id"),
         "minHumidity": minHumidity,
-        "autoMode": autoMode
+        "autoMode": autoMode,
+        "id_arduino":idArduino
     }
-
+console.log(config)
     $.ajax({
         url: 'https://my-json-server.typicode.com/Icoders-Noite/api-fake-test/config',
         data: config,
         error: function () {
             alert("Ocorreu um error ao se conectar com a API")
         },
-        dataType: 'jsonp',
+        dataType: 'json',
         success: function (data) {
             ArquivoGerar(idArduino)
         },
