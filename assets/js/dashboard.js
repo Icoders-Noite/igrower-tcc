@@ -61,6 +61,7 @@ function chartDough(data, element, label, tipo) {
     }
     Chart.defaults.global.legend.display = false
     Chart.defaults.global.tooltips.enabled = false
+    Chart.defaults.global.plugins.datalabels.display = false
     var myChart = new Chart(ctx, {
         type: 'doughnut',
         data: dataSolo,
@@ -199,6 +200,7 @@ function chartTemperatureDough(data, element) {
             }, // scales
             plugins: {																	// PROVIDE PLUGINS where you can specify custom style
                 datalabels: {
+                    display: true,
                     align: "start",
                     anchor: "end",
                     backgroundColor: null,
