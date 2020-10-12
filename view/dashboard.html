@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../assets/css/css-min/style.min.css">
     <script src="../assets/js/libs/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
     <script defer src="../assets/js/js-min/script.min.js"></script>
-    
+
 
     <title>Document</title>
 </head>
@@ -46,14 +47,24 @@
                     </label>
                 </div>
             </div>
-           <div id="configArduino"><div id="abrirConfig"><div class="botao-configuracao-dashboard">Configurações</div></div></div>
+            <div id="configArduino">
+                <div id="abrirConfig">
+                    <div class="botao-configuracao-dashboard">Configurações</div>
+                </div>
+            </div>
         </div>
         <div id="logoff-button-dashboard"><span class="button">SAIR</span></div>
     </section>
 
     <section id="middle-side-section-dashboard">
-        <canvas id="graficos-dashboard"></canvas>
-        
+        <div id="umidade-container">
+            <div class="grafico-donut"><canvas id="graficos-solo-dashboard"></canvas></div>
+            <div class="grafico-donut"><canvas id="graficos-ar-dashboard"></canvas></div>
+        </div>
+        <div class="grafico-barra">
+            <span>Temperatura</span>
+            <canvas id="graficos-temperatura-dashboard"></canvas>
+        </div>
     </section>
 </body>
 
