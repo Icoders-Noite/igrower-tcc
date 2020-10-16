@@ -4,12 +4,43 @@ $(window).on('load', function () {
     $('#preloader').delay(350).fadeOut('slow');
     $('body').delay(350).css({ 'overflow': 'visible' });
 
-    chartDough(80, 'graficos-solo-dashboard', 'Umidade - Solo', 'Solo');
-    chartDough(50, 'graficos-ar-dashboard', 'Umidade - Ar', 'Ar');
-    chartTemperatureDough(33, 'graficos-temperatura-dashboard')
+    var Requester = window.setInterval(getSensores, 60000)
+
 })
 //]]>
+function getSensores() {
 
+    const credentials = {
+        "id_user":  localStorage.getItem("id")
+    }
+    $.ajax({
+
+
+        url: hostApi + '/get-status-sensores',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(credentials),
+        success: function (data) {
+            console.log(data);
+            fillCharts(data)
+        }
+    });
+
+
+}
+
+function fillCharts(data) {
+    var result = data.resultado[0]
+    chartDough(result.umidade_solo, 'graficos-solo-dashboard', 'Umidade - Solo', 'Solo');
+    chartDough(result.umidade_ar, 'graficos-ar-dashboard', 'Umidade - Ar', 'Ar');
+    chartTemperatureDough(result.temperatura, 'graficos-temperatura-dashboard')
+}
 function loadConfig() {
     $('#configArduino').html('<iframe id="iframeConfig" src="gerar-configuracoes.html"></iframe>');
 }
@@ -260,3 +291,4 @@ function switchCorTemperatura(data) {
         }
     }
 }
+
