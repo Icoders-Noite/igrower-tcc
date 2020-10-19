@@ -1,7 +1,11 @@
 
+::-webkit-scrollbar{
+    width:0px;
+}
 #corpo-index {
     flex-direction: column;
     background-color: #97BF7C;
+    overflow-y: visible;
    
 }
 
