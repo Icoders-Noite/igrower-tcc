@@ -27,7 +27,10 @@ const css = ['init/reset.css','assets/css/main.css',
 'assets/css/index.css',
 'assets/css/card.css',
 'assets/css/recuperar-senha.css',
-'assets/css/gerar-configuracoes.css']
+'assets/css/gerar-configuracoes.css',
+'assets/css/como-usar.css'
+]
+
 
 gulp.task('clean', function () {
     return gulp.src('dist/')
