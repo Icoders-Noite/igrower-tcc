@@ -292,3 +292,15 @@ function switchCorTemperatura(data) {
     }
 }
 
+document.getElementById('icone-menu-dashboard').addEventListener("click", function(){
+    let menu = document.getElementById('left-section-dashboard')
+    let barra = document.getElementById('mobile-nav')
+    if(menu.style.display == 'none' || menu.style.display == "" ){
+        menu.style.display = 'flex'
+        barra.style.background = "#1F2E52"
+    }else{
+        menu.style.display = 'none'
+        barra.style.background = "#36777A"
+    }
+})
+

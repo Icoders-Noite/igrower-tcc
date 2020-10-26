@@ -95,4 +95,8 @@
     .selects-config{
         flex-direction: column;
     }
+
+    .card-out{
+        border-radius: 0;
+    }
 }
