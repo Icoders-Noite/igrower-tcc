@@ -156,7 +156,7 @@ function callbackCadastro(data) {
 
         alert("Cadastrado com sucesso!")
         // $("#voltarLogin").trigger("click")
-        window.location.href = 'gerar-configuracoes.html'
+      location.reload(true)
     } else {
 
         if (data.mensagem == "E-mail já cadastrado!") {
