@@ -22,9 +22,9 @@ function getSensores() {
             'Access-Control-Allow-Credentials': 'true',
             'Content-Type': 'application/json'
         },
-        method: 'GET',
-        type: 'GET',
-        dataType: 'jsonp',
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
         data: JSON.stringify(credentials),
         success: function (data) {
             console.log(data);
@@ -36,7 +36,6 @@ function getSensores() {
         }
        
     });
-
 
 }
 
