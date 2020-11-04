@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/css-min/style.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/9280d503ee.js" crossorigin="anonymous"></script>
     <script src="../assets/js/libs/jquery.min.js"></script>
-    <script  src="../assets/js/libs/sticker.min.js"></script>
+    <script src="../assets/js/libs/sticker.min.js"></script>
     <!-- <script defer src="../assets/js/js-min/script.min.js"></script> -->
     <script defer src="../assets/js/login-cadastro.js"></script>
- 
+
 
 
     <title>Login</title>
@@ -27,7 +28,9 @@
         <div class="login-info-container">
             <input id="email" class="inp-login-cadastro" type="email" placeholder="E-mail">
             <input id="senha" class="inp-login-cadastro" type="password" placeholder="Senha">
-            <div id="btn-login" class="botao btn-login-cadastro">Entrar</div>
+            <div id="btn-login" class="botao btn-login-cadastro">
+                <i id="icone-loading" class="fa fa-spinner fa-spin"></i><span id="conteudo-btn-loginCadastro">Entrar</span>
+            </div>
             <div class="container-alerts">
                 <span class="alerts" id="camposEmBranco">*Favor Preencher os campos</span>
                 <span class="alerts" id="credenciaisIncorretas">*Credenciais Incorretas</span>
@@ -36,7 +39,7 @@
                 <p>Sem cadastro? Clique<span class="link" id="abrirCadastro"> aqui</span> para cadastrar.
                     <br>Perdeu a senha?<a href="recuperar-senha.html" class="link"> Recupere aqui.</a></p>
             </div>
-        
+
             <div class="footer-card"> © ICoders - Todos Direitos Reservados 2020</div>
 
         </div>
@@ -64,9 +67,9 @@
                 <input id="senhaCadastro" class="inp-login-cadastro" type="password" placeholder="Senha">
                 <input id="confirmarSenha" class="inp-login-cadastro" type="password" placeholder="Confirmar senha">
 
-                <div id="btn-cadastro" class="botao btn-login-cadastro">Cadastrar</div>
-
-
+                <div id="btn-cadastro" class="botao btn-login-cadastro">
+                    <i id="icone-loading" class="fa fa-spinner fa-spin"></i><span id="conteudo-btn-loginCadastro">Cadastrar</span>
+                </div>
 
             </div>
 

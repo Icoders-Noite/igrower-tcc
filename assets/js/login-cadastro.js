@@ -4,6 +4,14 @@ const hostApi = "https://us-central1-meu-tcc-1995.cloudfunctions.net/function-1"
 //apertando o botão login
 $('#btn-login').click(function () {
 
+    //botão loading
+    let iconeCarregar = document.getElementById('icone-loading')
+    let conteudoBotao = document.getElementById('conteudo-btn-loginCadastro')
+
+    iconeCarregar.style.display = "block"
+    conteudoBotao.style.display = "none"
+    
+
     $("#credenciaisIncorretas").fadeOut("fast", function () {
         $("#camposEmBranco").fadeOut("fast", function () {
 
@@ -30,6 +38,8 @@ $('#btn-login').click(function () {
                     success: function (data) {
                         console.log(data);
                         callback(data)
+                        iconeCarregar.style.display = "none"
+                         conteudoBotao.style.display = "block"
                     }
                 });
 
