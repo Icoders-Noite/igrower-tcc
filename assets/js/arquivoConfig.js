@@ -2,7 +2,7 @@ let ssid
 let senha
 let minHumidity
 let autoMode
-let idArduino=-1
+let idArduino = -1
 
 $("#btn-gerar-config").click(function () {
 
@@ -17,23 +17,27 @@ $("#btn-gerar-config").click(function () {
         "id_user": localStorage.getItem("id"),
         "min_umidade": minHumidity,
         "automatico": autoMode,
-        "id_arduino":idArduino
+        "id_arduino": idArduino
+    }
+    if (senha.length > 0 && ssid.length > 0 && minHumidity != "-1" && minHumidity != "0" && autoMode != "-1") {
+        $.ajax({
+            url: hostApi + "/inserir-config-arduino",
+            data: config,
+            error: function () {
+                alert("Ocorreu um error ao se conectar com a API")
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data)
+                ArquivoGerar(idArduino)
+            },
+            method: 'POST',
+            type: 'POST'
+        });
+    } else {
+        alert("Opções inválidas")
     }
 
-    $.ajax({
-        url: hostApi+"/inserir-config-arduino",
-        data: config,
-        error: function () {
-            alert("Ocorreu um error ao se conectar com a API")
-        },
-        dataType: 'json',
-        success: function (data) {
-            console.log(data)
-            ArquivoGerar(idArduino)
-        },
-        method: 'POST',
-        type: 'POST'
-    });
 
 
 
@@ -41,13 +45,8 @@ $("#btn-gerar-config").click(function () {
 
 function ArquivoGerar(id) {
 
-    if (senha.length > 0 && ssid.length > 0 && minHumidity != "-1" && minHumidity != "0" && autoMode != "-1") {
-        alert("Salve o arquivo de configurações dentro do cartão SD do Igrower e selecione para substituir arquivo")
-        salvar(`${id}\n${ssid}\n${senha}\n`)
-
-    } else {
-        alert("Opções inválidas")
-    }
+    alert("Salve o arquivo de configurações dentro do cartão SD do Igrower e selecione para substituir arquivo")
+    salvar(`${id}\n${ssid}\n${senha}\n`)
 
 }
 
@@ -59,7 +58,6 @@ function salvar(config) {
     saveAs(blob, "CONFIG" + ".txt");
 }
 
-1101
 
 
 
@@ -87,6 +85,6 @@ $("#minHumidityManual").change("mousestop", function () {
     adicionouItens = true
 });
 
-function salvarIdEmcache(){
+function salvarIdEmcache() {
 
 }
