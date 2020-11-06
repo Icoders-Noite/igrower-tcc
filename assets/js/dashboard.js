@@ -4,7 +4,7 @@ $(window).on('load', function () {
     $('#preloader').delay(350).fadeOut('slow')
     $('body').delay(350).css({ 'overflow': 'visible' })
 
-
+    getSensores()
     var Requester = window.setInterval(getSensores, 60000)
     document.getElementById('grafico-barra').style.display = 'none'
     document.getElementById('icone-loading-dashboard').style.display = 'block'
@@ -14,7 +14,7 @@ $(window).on('load', function () {
 function getSensores() {
 
     const credentials = {
-        "id_user":  localStorage.getItem("id")
+        "id_user": localStorage.getItem("id")
     }
     $.ajax({
 
@@ -34,12 +34,12 @@ function getSensores() {
             fillCharts(data);
             document.getElementById('grafico-barra').style.display = 'block'
             document.getElementById('icone-loading-dashboard').style.display = 'none'
-        },  
+        },
         error: function (data) {
             console.log(data);
-         
+
         }
-       
+
     });
 
 }
@@ -48,22 +48,66 @@ function fillCharts(data) {
     var result = data.resultado[0]
     chartDough(result.umidade_solo, 'graficos-solo-dashboard', 'Umidade - Solo', 'Solo');
     chartDough(result.umidade_ar, 'graficos-ar-dashboard', 'Umidade - Ar', 'Ar');
-    chartTemperatureDough(result.temperatura, 'graficos-temperatura-dashboard')
+    chartTemperatureDough(result.temperatura, 'graficos-temperatura-dashboard');
+  
+
 }
 function loadConfig() {
     $('#configArduino').html('<iframe id="iframeConfig" src="gerar-configuracoes.html"></iframe>');
 }
 
-$('.switch-dashboard').click( () =>{
+$('.switch-dashboard').click(() => {
     let luz = document.getElementById('switch-light-dashboard').checked
     let agua = document.getElementById('switch-water-dashboard').checked
+    let aguaInt, luzInt
+
+    if (luz) {
+        luzInt = 1
+    } else {
+        luzInt = 0
+    }
+
+    if (agua) {
+        aguaInt = 1
+    } else {
+        aguaInt = 0
+    }
+    let req = {
+        "id_arduino": 15,
+        "set_luz": luzInt,
+        "valvula": aguaInt
+    }
+    console.log(req)
+    $.ajax({
+
+        url: hostApi + '/set-status-luz',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(req),
+        success: function (data) {
+            console.log(data);
+
+        },
+        error: function (data) {
+            console.log(data);
+
+        }
+
+    });
+
 })
 
-function ativarDesativarLuz(valorAPI){
+function ativarDesativarLuz(valorAPI) {
     let luz = document.getElementById('switch-light-dashboard')
-    if(valorAPI == 1){
+    if (valorAPI == 1) {
         luz.checked = true
-    }else{
+    } else {
         luz.checked = false
     }
 }
@@ -315,13 +359,13 @@ function switchCorTemperatura(data) {
     }
 }
 
-document.getElementById('icone-menu-dashboard').addEventListener("click", function(){
+document.getElementById('icone-menu-dashboard').addEventListener("click", function () {
     let menu = document.getElementById('left-section-dashboard')
     let barra = document.getElementById('mobile-nav')
-    if(menu.style.display == 'none' || menu.style.display == "" ){
+    if (menu.style.display == 'none' || menu.style.display == "") {
         menu.style.display = 'flex'
         barra.style.background = "#1F2E52"
-    }else{
+    } else {
         menu.style.display = 'none'
         barra.style.background = "#36777A"
     }
