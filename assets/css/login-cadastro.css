@@ -112,6 +112,10 @@ html, body {
 
 }
 
+#icone-loading{
+    display: none;
+}
+
 .cadastro-recuperar-container {
     display: flex;
     flex-direction: column;

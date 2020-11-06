@@ -14,23 +14,25 @@ $("#btn-gerar-config").click(function () {
     idArduino = $("#idArduino").val()
 
     const config = {
-        "user_Id": localStorage.getItem("id"),
-        "minHumidity": minHumidity,
-        "autoMode": autoMode,
+        "id_user": localStorage.getItem("id"),
+        "min_umidade": minHumidity,
+        "automatico": autoMode,
         "id_arduino":idArduino
     }
-console.log(config)
+
     $.ajax({
-        url: 'https://my-json-server.typicode.com/Icoders-Noite/api-fake-test/config',
+        url: hostApi+"/inserir-config-arduino",
         data: config,
         error: function () {
             alert("Ocorreu um error ao se conectar com a API")
         },
         dataType: 'json',
         success: function (data) {
+            console.log(data)
             ArquivoGerar(idArduino)
         },
-        type: 'GET'
+        method: 'POST',
+        type: 'POST'
     });
 
 
@@ -56,6 +58,10 @@ function salvar(config) {
     let blob = new Blob(Array.from(config), { type: "text/plain;charset=utf-8" });
     saveAs(blob, "CONFIG" + ".txt");
 }
+
+1101
+
+
 
 $("#minHumidity")
     .change(function () {

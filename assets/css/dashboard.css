@@ -66,7 +66,7 @@ body {
     height: 300px;
 }
 
-.grafico-barra {
+#grafico-barra {
     width: 80%;
     height: 100px;
     display: flex;
@@ -75,7 +75,7 @@ body {
     justify-content: flex-start;
 }
 
-.grafico-barra span {
+#grafico-barra span {
     color: white;
 }
 
@@ -351,7 +351,7 @@ input:checked+.slider-dashboard:before {
         width: 100%;
         height: 45%;
     }
-    .grafico-barra {
+    #grafico-barra {
         width: 100%;
         height: 20%;
     }
