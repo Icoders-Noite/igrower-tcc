@@ -6,6 +6,8 @@ $(window).on('load', function () {
 
 
     var Requester = window.setInterval(getSensores, 60000)
+    document.getElementById('grafico-barra').style.display = 'none'
+    document.getElementById('icone-loading-dashboard').style.display = 'block'
 
 })
 //]]>
@@ -29,7 +31,9 @@ function getSensores() {
         data: JSON.stringify(credentials),
         success: function (data) {
             console.log(data);
-            fillCharts(data)
+            fillCharts(data);
+            document.getElementById('grafico-barra').style.display = 'block'
+            document.getElementById('icone-loading-dashboard').style.display = 'none'
         },  
         error: function (data) {
             console.log(data);
@@ -48,6 +52,20 @@ function fillCharts(data) {
 }
 function loadConfig() {
     $('#configArduino').html('<iframe id="iframeConfig" src="gerar-configuracoes.html"></iframe>');
+}
+
+$('.switch-dashboard').click( () =>{
+    let luz = document.getElementById('switch-light-dashboard').checked
+    let agua = document.getElementById('switch-water-dashboard').checked
+})
+
+function ativarDesativarLuz(valorAPI){
+    let luz = document.getElementById('switch-light-dashboard')
+    if(valorAPI == 1){
+        luz.checked = true
+    }else{
+        luz.checked = false
+    }
 }
 
 $('#abrirConfig').click(function () {

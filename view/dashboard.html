@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/css-min/style.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../assets/js/libs/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
@@ -34,7 +35,7 @@
                 <div class="switch-container-dashboard light-container">
                     <img src="../assets/img/Luz.png" alt="" class="switch-icon">
                     <label class="switch-dashboard">
-                        <input type="checkbox">
+                        <input id="switch-light-dashboard"type="checkbox">
                         <span class="slider-dashboard slider-light"></span>
                     </label>
                 </div>
@@ -42,7 +43,7 @@
                 <div class="switch-container-dashboard water-container">
                     <img src="../assets/img/Água.png" alt="" class="switch-icon">
                     <label class="switch-dashboard">
-                        <input type="checkbox">
+                        <input id="switch-water-dashboard"type="checkbox">
                         <span class="slider-dashboard slider-water"></span>
                     </label>
                 </div>
@@ -69,7 +70,8 @@
             <div class="grafico-donut"><canvas id="graficos-solo-dashboard"></canvas></div>
             <div class="grafico-donut"><canvas id="graficos-ar-dashboard"></canvas></div>
         </div>
-        <div class="grafico-barra">
+        <div id="icone-loading-dashboard"><i class="fa fa-spinner fa-spin"></i>Carregando</div>
+        <div id="grafico-barra">
             <span>Temperatura</span>
             <canvas id="graficos-temperatura-dashboard"></canvas>
         </div>
