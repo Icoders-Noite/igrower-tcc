@@ -169,7 +169,7 @@ img.switch-icon {
     margin: 30px;
 }
 
-.switch-container-dashboard {
+#switch-container-dashboard {
     display: flex;
     /*Main Axis*/
     justify-content: space-around;
@@ -177,11 +177,11 @@ img.switch-icon {
     align-items: center;
 }
 
-.switch-container-dashboard.water-container {
+#switch-container-dashboard.water-container {
     flex-direction: column;
 }
 
-.switch-container-dashboard.light-container {
+#switch-container-dashboard.light-container {
     flex-direction: column;
 }
 
