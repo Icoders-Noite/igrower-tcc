@@ -49,6 +49,7 @@ function fillCharts(data) {
     chartDough(result.umidade_solo, 'graficos-solo-dashboard', 'Umidade - Solo', 'Solo');
     chartDough(result.umidade_ar, 'graficos-ar-dashboard', 'Umidade - Ar', 'Ar');
     chartTemperatureDough(result.temperatura, 'graficos-temperatura-dashboard');
+    ativarDesativarLuz(result.status_lampada)
 
 
 }
@@ -78,7 +79,7 @@ $('.switch-dashboard').click(() => {
         aguaInt = 0
     }
     let req = {
-        "id_arduino": 15,
+        "id_user": localStorage.getItem("id"),
         "set_luz": luzInt,
         "valvula": aguaInt
     }
