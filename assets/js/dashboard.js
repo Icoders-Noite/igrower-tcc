@@ -49,7 +49,7 @@ function fillCharts(data) {
     chartDough(result.umidade_solo, 'graficos-solo-dashboard', 'Umidade - Solo', 'Solo');
     chartDough(result.umidade_ar, 'graficos-ar-dashboard', 'Umidade - Ar', 'Ar');
     chartTemperatureDough(result.temperatura, 'graficos-temperatura-dashboard');
-  
+
 
 }
 function loadConfig() {
@@ -57,8 +57,13 @@ function loadConfig() {
 }
 
 $('.switch-dashboard').click(() => {
+
     let luz = document.getElementById('switch-light-dashboard').checked
     let agua = document.getElementById('switch-water-dashboard').checked
+
+    let switchLuzAgua = document.getElementById('switch-container-dashboard')
+    switchLuzAgua.style.pointerEvents = 'none'
+
     let aguaInt, luzInt
 
     if (luz) {
@@ -78,6 +83,7 @@ $('.switch-dashboard').click(() => {
         "valvula": aguaInt
     }
     console.log(req)
+
     $.ajax({
 
         url: hostApi + '/set-status-luz',
@@ -97,11 +103,15 @@ $('.switch-dashboard').click(() => {
         error: function (data) {
             console.log(data);
 
+        },
+        complete: function (data) {
+            let switchLuzAgua = document.getElementById('switch-container-dashboard')
+            switchLuzAgua.style.pointerEvents = 'auto'
         }
 
     });
-
 })
+
 
 function ativarDesativarLuz(valorAPI) {
     let luz = document.getElementById('switch-light-dashboard')
