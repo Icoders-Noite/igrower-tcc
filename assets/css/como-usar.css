@@ -8,6 +8,7 @@
 .menu-index a:hover {
     background-color: #adff2e;
     color: black;
+
 }
 
 .menu-index a {
@@ -92,18 +93,14 @@ p {
 
 /* Texto Fim */
 
-/* imagens */
+/* Video */
 
-.imagem{
-    width: 400px;
-    height: 400px;
-    display: inline-block;
-    margin-left: 110px;
-    margin-right: 110px;
-    text-align: center;
+.video{
+    display: flex;
+    justify-content: center;
 }
 
-/* imagens Fim */
+/* Video Fim */
 
 @keyframes fade {
     0% {

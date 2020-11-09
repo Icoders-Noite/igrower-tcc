@@ -12,6 +12,7 @@
 .menu-index a:hover {
     background-color: #adff2e;
     color: black;
+    height: auto;
 }
 
 .menu-index a {
@@ -51,13 +52,10 @@ li, p, img {
     height: 10vh;
 }
 
-
 .img-index {
     width: 200px;
     height: 200px;
 }
-
-
 
 
 /* Texto Inicio */
@@ -101,12 +99,13 @@ p {
 .imagem{
     width: 400px;
     height: 400px;
-    display: inline-block;
-    margin-left: 110px;
-    margin-right: 110px;
-    text-align: center;
 }
 
+.imagens_div{
+    display: flex;
+    justify-content: space-around;
+
+}
 /* imagens Fim */
 
 @keyframes fade {
