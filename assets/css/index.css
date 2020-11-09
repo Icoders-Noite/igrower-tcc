@@ -97,14 +97,22 @@ p {
 /* imagens */
 
 .imagem{
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height:300px;
+    border-radius:  41px 0px 36px 0px / 41px 0px 36px 0px;
 }
 
 .imagens_div{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
 
+}
+@media only screen and (min-device-width: 360px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    .imagem{
+        margin-top:3%;
+    }
 }
 /* imagens Fim */
 

@@ -37,7 +37,7 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 gulp.task('comprimirImagens', () =>
-    gulp.src('assets/img/*.png', 'assets/img/*.jpg')
+    gulp.src('assets/img/*.png', 'assets/img/*.jpg','assets/img/*.jpeg')
         .pipe(imagemin())
         .pipe(gulp.dest('assets/img/compress/'))
 );
