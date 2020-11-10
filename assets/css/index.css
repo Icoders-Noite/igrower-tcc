@@ -112,7 +112,7 @@ p {
 .imagens_div{
     display: flex;
     justify-content: space-around;
-
+    flex-wrap: wrap;
 }
 /* imagens Fim */
 
