@@ -6,7 +6,7 @@ html, body {
 .corpo-fundo{
     display: flex;
     justify-content: flex-end;
-    background: url(../../img/compress/Horta-Fundo.png) repeat center fixed;
+    background: url("https://i.ibb.co/LZQLM9F/Horta-Fundo.png") repeat center fixed;
     background-size: cover;
     overflow: hidden;
     height: 100vh;
