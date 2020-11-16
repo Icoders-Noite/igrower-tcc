@@ -5,16 +5,8 @@
    
 }
 
-.menu-index a:hover {
-    background-color: #adff2e;
-    color: black;
 
-}
 
-.menu-index a {
-    padding: 3%;
-    text-decoration: none;
-}
 
 li, p, img {
     animation-name: fade;
@@ -25,25 +17,19 @@ li, p, img {
     -ms-animation: fade ease 0.8s;
 }
 
-.item-menu-index {
-    width: 20vw;
-    padding: 2%;
-}
+
 
 .itens-menu-juntos-index {
     display: flex;
     justify-content: space-around;
 }
 
-#login-a-menu {
-    justify-content: flex-end;
-    padding-right: 2em;
-}
+
 
 .menu-index {
     background-color: white;
     display: flex;
-    align-items: center;
+   
     justify-content: space-between;
     height: 10vh;
 }
